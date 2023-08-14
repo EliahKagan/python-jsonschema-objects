@@ -4,5 +4,6 @@ pyandoc
 pytest
 pytest-mock
 recommonmark
+setuptools
 sphinx
 sphinx-autobuild
