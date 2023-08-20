@@ -1,4 +1,3 @@
-import collections
 import logging
 
 import six
@@ -10,7 +9,7 @@ from python_jsonschema_objects.validators import ValidationError, registry
 logger = logging.getLogger(__name__)
 
 
-class ArrayWrapper(collections.abc.MutableSequence):
+class ArrayWrapper(six.moves.collections_abc.MutableSequence):
     """A wrapper for array-like structures.
 
     This implements all of the array like behavior that one would want,
@@ -64,7 +63,7 @@ class ArrayWrapper(collections.abc.MutableSequence):
         """ Holds a typed copy of the array """
         self._typed = None
 
-        if isinstance(ary, (list, tuple, collections.abc.Sequence)):
+        if isinstance(ary, (list, tuple, six.moves.collections_abc.Sequence)):
             self.data = ary
         else:
             raise TypeError("Invalid value given to array validator: {0}".format(ary))

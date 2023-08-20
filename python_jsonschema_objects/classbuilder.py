@@ -1,4 +1,3 @@
-import collections
 import copy
 import itertools
 import logging
@@ -22,7 +21,7 @@ if sys.version_info > (3,):
     long = int
 
 
-class ProtocolBase(collections.abc.MutableMapping):
+class ProtocolBase(six.moves.collections_abc.MutableMapping):
     """An instance of a class generated from the provided
     schema. All properties will be validated according to
     the definitions provided. However, whether or not all required

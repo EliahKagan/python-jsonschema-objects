@@ -4,7 +4,6 @@ __all__ = ["Namespace", "as_namespace"]
 
 import copy
 import json
-from collections.abc import Mapping, Sequence
 
 import six
 
@@ -212,9 +211,9 @@ def as_namespace(obj, names=None):
     if isinstance(obj, type):
         names = (name for name in dir(obj) if name not in CLASS_ATTRS)
         return Namespace.from_object(obj, names)
-    if isinstance(obj, Mapping):
+    if isinstance(obj, six.moves.collections_abc.Mapping):
         return Namespace.from_mapping(obj, names)
-    if isinstance(obj, Sequence):
+    if isinstance(obj, six.moves.collections_abc.Sequence):
         return Namespace.from_sequence(obj, names)
 
     # default
